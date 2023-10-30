@@ -10,10 +10,9 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    String firstName;
-    String lastName;
-    Integer age;
+    private String firstName;
+    private String lastName;
+    private Integer age;
 
 
     public Long getId() {

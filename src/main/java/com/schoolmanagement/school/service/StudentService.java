@@ -4,6 +4,7 @@ import com.schoolmanagement.school.entity.Student;
 import com.schoolmanagement.school.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -11,7 +12,7 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
-    public List<Student> getAllStudent(){
+    public List<Student> getAllStudent() {
         return studentRepository.findAll();
     }
 
@@ -22,6 +23,7 @@ public class StudentService {
     public void deleteStudentById(Long id) {
         studentRepository.deleteById(id);
     }
+
     public List<Student> getStudentsWithAgeGreater(Integer age) {
         return studentRepository.findByAgeGreaterThan(age);
     }

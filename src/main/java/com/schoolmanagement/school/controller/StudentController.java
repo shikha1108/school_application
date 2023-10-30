@@ -3,7 +3,6 @@ package com.schoolmanagement.school.controller;
 import com.schoolmanagement.school.entity.Student;
 import com.schoolmanagement.school.repository.StudentRepository;
 import com.schoolmanagement.school.service.StudentService;
-import com.schoolmanagement.school.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -37,12 +36,15 @@ public class StudentController {
             return ResponseEntity.notFound().build();
         }
         Student existingStudent = studentFromDB.get();
-        // Apply partial updates
         if (student.getFirstName() != null) {
             existingStudent.setFirstName(student.getFirstName());
-            //update lastName and age
         }
-        // Save the updated product
+        if (student.getLastName() != null) {
+            existingStudent.setLastName(student.getLastName());
+        }
+        if (student.getAge() != null) {
+            existingStudent.setAge(student.getAge());
+        }
         Student savedStudent = studentRepository.save(existingStudent);
         return ResponseEntity.ok(savedStudent);
     }
@@ -51,13 +53,11 @@ public class StudentController {
     public void deleteStudent1(@PathVariable("id") Long id) {
         studentService.deleteStudentById(id);
     }
+
     @GetMapping("/student/byage")
-    public List<Student>findStudentByAge(@RequestParam Integer age) {
-         return studentService.getStudentsWithAgeGreater(age);
+    public List<Student> findStudentByAge(@RequestParam Integer age) {
+        return studentService.getStudentsWithAgeGreater(age);
     }
-
-
-
 
 
 }

@@ -7,18 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student , Long> {
-    //create method to get all students whose age is greater than 20.
-//    public default List<Student> getAllStudentByAge(List<Student> students) {
-//        List<Student> newList = new ArrayList<>();
-//        for(Student student : students) {
-//            if(student.getAge() > 20) {
-//                newList.add(student);
-//            }
-//        }
-//        return newList;
-//
-//    }
+public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> findByAgeGreaterThan(int age);
-
 }
