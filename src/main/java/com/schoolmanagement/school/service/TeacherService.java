@@ -24,7 +24,6 @@ public class TeacherService {
         teacherRepository.deleteById(id);
     }
 
-
     public List<Teacher> getTeachersWithSalaryGreater(Double salary) {
         return teacherRepository.findBySalaryGreaterThan(salary);
     }

@@ -61,7 +61,6 @@ public class TeacherController {
     @GetMapping("/teacher/FirstName")
     public ResponseEntity<List<Teacher>> getTeachersByFirstName(@RequestParam String firstName) {
         List<Teacher> teachers = teacherService.getTeachersByFirstName(firstName);
-
         if (teachers.isEmpty()) {
             return ResponseEntity.notFound().build();
         } else {

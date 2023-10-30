@@ -6,17 +6,16 @@ import jakarta.persistence.*;
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "first_Name")
-    String firstName;
+    private String firstName;
 
     @Column(name = "last_Name")
-    String lastName;
-    Integer age;
-    Double salary;
-    String subject;
-
+    private String lastName;
+    private Integer age;
+    private Double salary;
+    private String subject;
 
     public Long getId() {
         return id;
