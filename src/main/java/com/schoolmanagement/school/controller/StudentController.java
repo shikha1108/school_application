@@ -3,6 +3,7 @@ package com.schoolmanagement.school.controller;
 import com.schoolmanagement.school.entity.Student;
 import com.schoolmanagement.school.repository.StudentRepository;
 import com.schoolmanagement.school.service.StudentService;
+import com.schoolmanagement.school.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -50,11 +51,14 @@ public class StudentController {
     public void deleteStudent1(@PathVariable("id") Long id) {
         studentService.deleteStudentById(id);
     }
-    @GetMapping("/student/ageabovethan20")
-    public List<Student>findStudentsAboveAge20() {
-         return studentService.getStudentsWithAgeGreaterThan20();
-
+    @GetMapping("/student/byage")
+    public List<Student>findStudentByAge(@RequestParam Integer age) {
+         return studentService.getStudentsWithAgeGreater(age);
     }
+
+
+
+
 
 }
 

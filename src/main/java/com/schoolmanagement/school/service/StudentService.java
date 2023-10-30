@@ -22,7 +22,7 @@ public class StudentService {
     public void deleteStudentById(Long id) {
         studentRepository.deleteById(id);
     }
-    public List<Student> getStudentsWithAgeGreaterThan20() {
-        return studentRepository.findByAgeGreaterThan(20);
+    public List<Student> getStudentsWithAgeGreater(Integer age) {
+        return studentRepository.findByAgeGreaterThan(age);
     }
 }
