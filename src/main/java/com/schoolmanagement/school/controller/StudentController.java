@@ -3,11 +3,14 @@ package com.schoolmanagement.school.controller;
 import com.schoolmanagement.school.entity.Student;
 import com.schoolmanagement.school.repository.StudentRepository;
 import com.schoolmanagement.school.service.StudentService;
+import com.schoolmanagement.school.service.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,6 +54,7 @@ public class StudentController {
 
     @DeleteMapping(value = "/student/{id}")
     public void deleteStudent1(@PathVariable("id") Long id) {
+
         studentService.deleteStudentById(id);
     }
 
